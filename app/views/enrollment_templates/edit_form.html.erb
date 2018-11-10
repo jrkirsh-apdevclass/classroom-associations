@@ -11,7 +11,8 @@
       Course
     </label>
 
-    <input type="text" id="course_id" name="course_id" class="form-control" value="<%= @enrollment.course_id %>">
+    <%= select_tag("course_id", options_from_collection_for_select(Course.all, :id, :title, @course.try(:course_id)), :class => "form-control") %>
+    or <a href="/courses/new">add a new course</a> first
   </div>
 
   <div class="form-group">
@@ -19,7 +20,8 @@
       Student
     </label>
 
-    <input type="text" id="student_id" name="student_id" class="form-control" value="<%= @enrollment.student_id %>">
+    <%= select_tag("student_id", options_from_collection_for_select(Student.all, :id, :first_name, @course.try(:student_id)), :class => "form-control") %>
+    or <a href="/students/new">add a new students</a> first
   </div>
 
   <button class="btn btn-block btn-outline-secondary">
