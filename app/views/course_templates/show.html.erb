@@ -15,6 +15,16 @@
   <dd>
     <%= @course.title %>
   </dd>
+  <dt>
+    Department
+  </dt>
+  <dd>
+    <%= @course.department_id %>
+  </dd>
+  <dt>
+    Number of Enrolled Students
+  </dt>
+  
 </dl>
 
 <a href="/delete_course/<%= @course.id %>">

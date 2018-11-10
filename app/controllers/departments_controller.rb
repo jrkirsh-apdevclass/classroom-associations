@@ -19,6 +19,7 @@ class DepartmentsController < ApplicationController
     @department = Department.new
 
     @department.name = params.fetch("name")
+    @department.id = params.fetch("id")
 
     if @department.valid?
       @department.save
