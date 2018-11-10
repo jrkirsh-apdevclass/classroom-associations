@@ -24,7 +24,9 @@
   <dt>
     Number of Enrolled Students
   </dt>
-  
+  <dt>  
+      <%= Enrollment.where(course_id: @course.id).count %>
+  </dt>
   
 </dl>
 
@@ -37,3 +39,26 @@
 <a href="/courses">
   Go back
 </a>
+
+
+
+  <div class="card-header">
+    Enroll a new student
+  </div>
+
+    <form action="/create_enrollment" method="post">
+ 
+      <div class="form-group">
+        <label for="student_id">
+          Student
+        </label>
+
+         <%= select_tag("student_id", options_from_collection_for_select(Student.all, :id, :first_name, @enrollment.try(:student_id)), :class => "form-control") %>
+    or <a href="/students/new">add a new student</a> First
+      </div>
+      
+
+      <button class="btn btn-block btn-outline-secondary">
+    Create enrollment
+      </button>
+    </form>
